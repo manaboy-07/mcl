@@ -1,0 +1,142 @@
+.wrap {
+  max-width: 960px;
+  width: 100%;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #fd018b;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.heading {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #000;
+  margin: 0;
+  max-width: 420px;
+}
+
+.subtext {
+  font-size: 15px;
+  color: #888;
+  line-height: 1.7;
+  max-width: 300px;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+}
+
+.cell {
+  border-right: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  padding: 28px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.cell:hover {
+  background: #f5f5f5;
+}
+
+.cellLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #bbb;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.cell:hover .cellLabel {
+  color: #000;
+}
+
+/* Container to hide the overflow and add a fade effect on the edges */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+  /* Adds a smooth gradient fade to the left and right edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* The track that actually moves */
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 4rem; /* Space between logos */
+  width: max-content;
+  /* 30s is the speed. Adjust lower for faster, higher for slower */
+  animation: scroll 30s linear infinite;
+}
+
+/* Optional: Pauses the marquee when the user hovers over it */
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.marqueeItem {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional styling to make the logos look uniform */
+.partnerLogo {
+  filter: grayscale(100%) opacity(70%);
+  transition: filter 0.3s ease;
+}
+
+.partnerLogo:hover {
+  filter: grayscale(0%) opacity(100%);
+}
+
+/* The keyframes for the continuous scroll */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Moves the track exactly halfway (one full set of logos) */
+    transform: translateX(calc(-50% - 2rem));
+  }
+}

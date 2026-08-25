@@ -1,0 +1,117 @@
+.wrap {
+  text-align: center;
+  max-width: 640px;
+  padding: 0 32px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fd018b;
+  animation: pulse 2s infinite;
+}
+
+.badgeLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.brandName {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+.title {
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.body {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 52px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: #fd018b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 7px;
+  letter-spacing: 0.01em;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(253, 1, 139, 0.3);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #000;
+  border: 1px solid #eaeaea;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 7px;
+  letter-spacing: 0.01em;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.secondaryButton:hover {
+  border-color: #000;
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}

@@ -1,0 +1,86 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.logoMark {
+  width: 26px;
+  height: 26px;
+  background: #000;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+
+.dotsRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dotButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.dotSvg {
+  transform: rotate(-90deg);
+}
+
+.dotProgress {
+  transition: stroke-dasharray 0.1s linear;
+}
+
+.dotCenter {
+  transition: all 0.3s;
+}
+
+.pauseButton {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  transition: background 0.2s;
+}
+
+.pauseButton:hover {
+  background: rgba(0, 0, 0, 0.09);
+}

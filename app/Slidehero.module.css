@@ -1,0 +1,116 @@
+.grid {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  background: rgba(253, 1, 139, 0.08);
+  border: 1px solid rgba(253, 1, 139, 0.2);
+  border-radius: 20px;
+  padding: 6px 14px;
+}
+
+.eyebrowDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fd018b;
+}
+
+.eyebrowLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #fd018b;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(36px, 4.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.body {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 440px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: #fd018b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 7px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(253, 1, 139, 0.3);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #000;
+  border: 1px solid #eaeaea;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 7px;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.secondaryButton:hover {
+  border-color: #000;
+  transform: translateY(-2px);
+}
+
+.illustrationWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}

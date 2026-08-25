@@ -1,0 +1,6 @@
+.illustration {
+  width: 100%;
+  max-width: 480px;
+  user-select: none;
+  pointer-events: none;
+}
