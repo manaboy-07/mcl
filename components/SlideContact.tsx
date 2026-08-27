@@ -54,9 +54,13 @@ export function SlideContact({
 }: SlideContactProps) {
   return (
     <Slide style={style}>
-      <div className="mx-auto flex h-full w-full max-w-275 flex-col justify-between px-6 py-10 md:px-8 md:py-16">
+      {/* 
+        FIX 1: Replaced max-w-275 with max-w-[1100px].
+        FIX 2: Added overflow-y-auto so short mobile screens can scroll to the submit button.
+      */}
+      <div className="mx-auto flex h-full w-full max-w-[1100px] flex-col justify-between overflow-y-auto px-6 py-8 md:px-8 md:py-12 lg:overflow-visible">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Text & Details */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-[#fd018b] md:mb-4 md:text-sm">
@@ -65,13 +69,13 @@ export function SlideContact({
             <h2 className="mb-4 text-[clamp(40px,5vw,64px)] font-extrabold leading-[1.05] tracking-[-0.03em] text-black md:mb-6">
               Let&apos;s Talk.
             </h2>
-            <p className="mb-10 text-base leading-[1.8] text-[#666] md:mb-12 md:text-[17px]">
+            <p className="mb-8 text-base leading-[1.8] text-[#666] md:mb-12 md:text-[17px]">
               Have a project, partnership or technology requirement? We&apos;d
               love to hear from you.
             </p>
 
             {/* Contact Details List */}
-            <div className="flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-col gap-5 md:gap-8">
               {CONTACT_DETAILS.map((item) => (
                 <div key={item.label}>
                   <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#999]">
@@ -90,9 +94,10 @@ export function SlideContact({
           </div>
 
           {/* Right Column: Form or Success Message */}
-          <div className="flex flex-col justify-center">
+          <div className="mt-4 flex flex-col justify-center lg:mt-0">
             {sent ? (
-              <div className="flex h-full min-h-87.5 flex-col items-center justify-center rounded-2xl border border-[#eaeaea] bg-gray-50/50 p-8 text-center transition-all">
+              /* FIX 3: Replaced min-h-87.5 with min-h-[350px] */
+              <div className="flex h-full min-h-[350px] flex-col items-center justify-center rounded-2xl border border-[#eaeaea] bg-gray-50/50 p-8 text-center transition-all">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#fd018b]/10">
                   <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
                     <path
@@ -156,7 +161,7 @@ export function SlideContact({
         </div>
 
         {/* Footer */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-[#eaeaea] pt-6 text-center sm:flex-row sm:text-left md:mt-24 md:pt-8">
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-[#eaeaea] pt-6 text-center sm:flex-row sm:text-left md:mt-16 md:pt-8">
           <span className="text-[13px] text-[#999]">
             © {new Date().getFullYear()} Manifold Computers Limited
           </span>
