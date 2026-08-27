@@ -24,9 +24,14 @@ export function SlideHero({ style, onNext }: SlideHeroProps) {
         }
       `}</style>
 
-      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-12 px-6 py-10 md:px-12 lg:grid-cols-2 lg:gap-16">
+      {/* 
+        FIX 1: Removed global h-full so mobile flows naturally downwards.
+        FIX 2: Replaced items-center/justify-center with justify-start and gap-12 on mobile.
+        FIX 3: Re-engages lg:h-full and lg:items-center only on desktop grid.
+      */}
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-start gap-12 overflow-y-auto px-6 py-10 md:px-12 lg:grid lg:h-full lg:grid-cols-2 lg:items-center lg:gap-16 lg:overflow-visible">
         {/* Left Content Area */}
-        <div className="flex flex-col items-start">
+        <div className="order-1 flex w-full flex-col items-start lg:order-none">
           {/* Eyebrow Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#fd018b]/20 bg-[#fd018b]/10 px-3.5 py-1.5 md:mb-7">
             <div className="h-1.5 w-1.5 rounded-full bg-[#fd018b]" />
@@ -41,7 +46,7 @@ export function SlideHero({ style, onNext }: SlideHeroProps) {
           </h1>
 
           {/* Body */}
-          <p className="mb-8 w-full max-w-110 text-base font-normal leading-[1.8] text-[#666] md:mb-10 md:text-[17px]">
+          <p className="mb-8 w-full max-w-[440px] text-[15px] font-normal leading-[1.8] text-[#666] md:mb-10 md:text-[17px]">
             Manifold Computers Limited delivers enterprise infrastructure,
             cybersecurity, networking and managed services that help
             organisations modernise, scale and innovate.
@@ -62,8 +67,8 @@ export function SlideHero({ style, onNext }: SlideHeroProps) {
         </div>
 
         {/* Right Illustration Area */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="animate-float">
+        <div className="order-2 flex w-full justify-center lg:order-none lg:justify-end">
+          <div className="animate-float w-full max-w-[280px] sm:max-w-[380px] lg:max-w-none">
             <HeroIllustration />
           </div>
         </div>

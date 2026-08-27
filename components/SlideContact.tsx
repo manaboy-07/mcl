@@ -55,34 +55,34 @@ export function SlideContact({
   return (
     <Slide style={style}>
       {/* 
-        FIX 1: Replaced max-w-275 with max-w-[1100px].
-        FIX 2: Added overflow-y-auto so short mobile screens can scroll to the submit button.
+        Removed strict h-full stretching for mobile so the content flows naturally downwards.
+        Added explicit gap-12 to push the footer down cleanly.
       */}
-      <div className="mx-auto flex h-full w-full max-w-[1100px] flex-col justify-between overflow-y-auto px-6 py-8 md:px-8 md:py-12 lg:overflow-visible">
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-24">
-          {/* Left Column: Text & Details */}
-          <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-[#fd018b] md:mb-4 md:text-sm">
+      <div className="mx-auto flex w-full max-w-[1000px] flex-col justify-between overflow-y-auto px-6 py-10 md:px-12 md:py-12 lg:h-full lg:overflow-visible">
+        {/* Main Content Layout: Stacks strictly on mobile, side-by-side on Desktop (lg) */}
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-20">
+          {/* Top/Left Section: Information */}
+          <div className="flex w-full flex-col justify-start order-1">
+            <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#fd018b]">
               Contact
             </p>
-            <h2 className="mb-4 text-[clamp(40px,5vw,64px)] font-extrabold leading-[1.05] tracking-[-0.03em] text-black md:mb-6">
+            <h2 className="mb-5 text-[clamp(40px,5vw,68px)] font-extrabold leading-[1.02] tracking-[-0.04em] text-black">
               Let&apos;s Talk.
             </h2>
-            <p className="mb-8 text-base leading-[1.8] text-[#666] md:mb-12 md:text-[17px]">
+            <p className="mb-10 max-w-[300px] text-[15px] leading-[1.8] text-[#666] md:mb-12 md:text-base">
               Have a project, partnership or technology requirement? We&apos;d
               love to hear from you.
             </p>
 
             {/* Contact Details List */}
-            <div className="flex flex-col gap-5 md:gap-8">
+            <div className="flex flex-col gap-6">
               {CONTACT_DETAILS.map((item) => (
                 <div key={item.label}>
-                  <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#999]">
+                  <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#bbb]">
                     {item.label}
                   </div>
                   <div
-                    className={`text-[15px] font-medium md:text-base ${
+                    className={`text-[14px] font-medium ${
                       item.accent ? "text-[#fd018b]" : "text-black"
                     }`}
                   >
@@ -93,26 +93,25 @@ export function SlideContact({
             </div>
           </div>
 
-          {/* Right Column: Form or Success Message */}
-          <div className="mt-4 flex flex-col justify-center lg:mt-0">
+          {/* Bottom/Right Section: Form */}
+          <div className="flex w-full flex-col justify-start order-2 lg:pt-2">
             {sent ? (
-              /* FIX 3: Replaced min-h-87.5 with min-h-[350px] */
-              <div className="flex h-full min-h-[350px] flex-col items-center justify-center rounded-2xl border border-[#eaeaea] bg-gray-50/50 p-8 text-center transition-all">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#fd018b]/10">
-                  <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
+              <div className="py-8 transition-all lg:py-0">
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-[#fd018b]/30 bg-[#fd018b]/10">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path
                       d="M3 9l4.5 4.5L15 5"
                       stroke="#FD018B"
-                      strokeWidth="2"
+                      strokeWidth="1.8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-xl font-bold tracking-tight text-black md:text-2xl">
+                <h3 className="mb-2.5 text-[22px] font-bold tracking-[-0.02em] text-black">
                   Message Sent
                 </h3>
-                <p className="text-sm leading-relaxed text-[#666] md:text-base">
+                <p className="text-[15px] leading-[1.7] text-[#666]">
                   Thank you for reaching out. Our team will be in touch shortly.
                 </p>
               </div>
@@ -122,36 +121,34 @@ export function SlideContact({
                   e.preventDefault();
                   setSent(true);
                 }}
-                className="flex w-full flex-col"
+                className="flex w-full flex-col gap-6"
               >
-                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {CONTACT_FIELDS.map(({ field, label, type, required }) => (
-                    <input
-                      key={field}
-                      type={type}
-                      placeholder={label}
-                      required={required}
-                      value={formState[field]}
-                      onChange={(e) =>
-                        setFormState((s) => ({ ...s, [field]: e.target.value }))
-                      }
-                      className="w-full rounded-[7px] border border-[#eaeaea] bg-transparent px-4 py-3.5 text-[15px] text-black placeholder-[#999] outline-none transition-colors focus:border-[#fd018b] focus:bg-white"
-                    />
-                  ))}
-                </div>
+                {CONTACT_FIELDS.map(({ field, label, type, required }) => (
+                  <input
+                    key={field}
+                    type={type}
+                    placeholder={label}
+                    required={required}
+                    value={formState[field]}
+                    onChange={(e) =>
+                      setFormState((s) => ({ ...s, [field]: e.target.value }))
+                    }
+                    className="w-full border-0 border-b border-[#eaeaea] bg-transparent px-0 pb-3 pt-1 text-[15px] text-black placeholder-[#999] transition-colors focus:border-black focus:outline-none focus:ring-0"
+                  />
+                ))}
                 <textarea
                   placeholder="Message"
-                  rows={4}
+                  rows={3}
                   required
                   value={formState.message}
                   onChange={(e) =>
                     setFormState((s) => ({ ...s, message: e.target.value }))
                   }
-                  className="mb-6 w-full resize-none rounded-[7px] border border-[#eaeaea] bg-transparent px-4 py-3.5 text-[15px] text-black placeholder-[#999] outline-none transition-colors focus:border-[#fd018b] focus:bg-white"
+                  className="w-full resize-none border-0 border-b border-[#eaeaea] bg-transparent px-0 pb-3 pt-1 text-[15px] text-black placeholder-[#999] transition-colors focus:border-black focus:outline-none focus:ring-0"
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-[7px] bg-[#fd018b] px-7 py-4 text-sm font-semibold tracking-[0.01em] text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(253,1,139,0.3)]"
+                  className="mt-2 w-full rounded-[7px] bg-[#fd018b] py-3.5 text-[14px] font-semibold tracking-[0.01em] text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(253,1,139,0.3)]"
                 >
                   Send Message
                 </button>
@@ -161,11 +158,11 @@ export function SlideContact({
         </div>
 
         {/* Footer */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-[#eaeaea] pt-6 text-center sm:flex-row sm:text-left md:mt-16 md:pt-8">
-          <span className="text-[13px] text-[#999]">
+        <div className="mt-12 flex w-full flex-col items-center justify-between gap-3 border-t border-[#eaeaea] pt-5 text-center sm:flex-row sm:text-left lg:mt-24">
+          <span className="text-[12px] text-[#bbb]">
             © {new Date().getFullYear()} Manifold Computers Limited
           </span>
-          <span className="text-[13px] font-medium text-black">
+          <span className="text-[12px] uppercase tracking-[0.05em] text-[#ccc]">
             Enterprise Technology. Built for Africa.
           </span>
         </div>
