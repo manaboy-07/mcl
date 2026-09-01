@@ -10,10 +10,6 @@ interface SlideHeroProps {
 export function SlideHero({ style, onNext }: SlideHeroProps) {
   return (
     <Slide style={style}>
-      {/* 
-        Injecting the custom float animation here so it works out-of-the-box 
-        without needing to edit tailwind.config.js
-      */}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0); }
@@ -24,11 +20,6 @@ export function SlideHero({ style, onNext }: SlideHeroProps) {
         }
       `}</style>
 
-      {/* 
-        FIX 1: Removed global h-full so mobile flows naturally downwards.
-        FIX 2: Replaced items-center/justify-center with justify-start and gap-12 on mobile.
-        FIX 3: Re-engages lg:h-full and lg:items-center only on desktop grid.
-      */}
       <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-start gap-12 overflow-y-auto px-6 py-10 md:px-12 lg:grid lg:h-full lg:grid-cols-2 lg:items-center lg:gap-16 lg:overflow-visible">
         {/* Left Content Area */}
         <div className="order-1 flex w-full flex-col items-start lg:order-none">
@@ -66,7 +57,6 @@ export function SlideHero({ style, onNext }: SlideHeroProps) {
           </div>
         </div>
 
-        {/* Right Illustration Area */}
         <div className="order-2 flex w-full justify-center lg:order-none lg:justify-end">
           <div className="animate-float w-full max-w-[280px] sm:max-w-[380px] lg:max-w-none">
             <HeroIllustration />

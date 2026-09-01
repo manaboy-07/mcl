@@ -2,6 +2,7 @@
 
 import { SLIDES } from "@/lib/constants";
 import styles from "../app/Nav.module.css";
+import Image from "next/image";
 
 interface NavProps {
   current: number;
@@ -22,15 +23,16 @@ export function Nav({
 }: NavProps) {
   return (
     <nav className={styles.nav}>
-      <button onClick={onLogoClick} className={styles.logoButton}>
-        <div className={styles.logoMark}>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path d="M2 8L8 2L14 8L8 14L2 8Z" fill="#FD018B" />
-            <path d="M5 8L8 5L11 8L8 11L5 8Z" fill="#fff" />
-          </svg>
+      <div onClick={onLogoClick} className={""}>
+        <div className={""}>
+          <Image
+            src={"/assets/Images/mcl-logo.png"}
+            width={150}
+            height={150}
+            alt="mcl logo"
+          />
         </div>
-        <span className={styles.logoText}>Manifold Computers</span>
-      </button>
+      </div>
 
       <div className={styles.dotsRow}>
         {SLIDES.map((slide, i) => {
