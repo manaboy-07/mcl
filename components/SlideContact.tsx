@@ -40,8 +40,11 @@ const CONTACT_FIELDS: {
 ];
 
 const CONTACT_DETAILS: { label: string; value: string; accent?: boolean }[] = [
-  { label: "Location", value: "Lagos, Nigeria" },
-  { label: "Email", value: "hello@manifoldcomputers.com", accent: true },
+  {
+    label: "Location",
+    value: "Leadway Marble House 1 Alfred Rewane Road Ikoyi Lagos, Nigeria",
+  },
+  { label: "Email", value: "reachus@manifoldcomputers.com", accent: true },
   { label: "LinkedIn", value: "Manifold Computers Limited", accent: true },
 ];
 
@@ -54,10 +57,6 @@ export function SlideContact({
 }: SlideContactProps) {
   return (
     <Slide style={style}>
-      {/* 
-        Removed strict h-full stretching for mobile so the content flows naturally downwards.
-        Added explicit gap-12 to push the footer down cleanly.
-      */}
       <div className="mx-auto flex w-full max-w-[1000px] flex-col justify-between overflow-y-auto px-6 py-10 md:px-12 md:py-12 lg:h-full lg:overflow-visible">
         {/* Main Content Layout: Stacks strictly on mobile, side-by-side on Desktop (lg) */}
         <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-20">
