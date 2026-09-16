@@ -27,4 +27,6 @@ export const partnerImages = [
   { name: "Veeam", path: "/assets/partners/Veeam.png" },
   { name: "Vmware", path: "/assets/partners/Vmware.svg.webp" },
 ];
-//DM Sans bibv b bdib
+
+
+
