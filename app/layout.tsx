@@ -27,7 +27,6 @@ export default function RootLayout({
       <body className={`${dmSans.className} min-h-full flex flex-col`}>
         <Providers>
           <SmoothScroll>{children}</SmoothScroll>
-          <Footer />
         </Providers>
       </body>
     </html>

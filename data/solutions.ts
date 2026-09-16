@@ -1,6 +1,6 @@
 export interface Solution {
-  name: string
-  desc: string
+  name: string;
+  desc: string;
 }
 
 export const solutions: Solution[] = [
@@ -20,4 +20,4 @@ export const solutions: Solution[] = [
     name: "Managed Services",
     desc: "Proactive monitoring, support and management of your technology estate.",
   },
-]
+];

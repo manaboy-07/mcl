@@ -15,6 +15,7 @@ import { SlideComingSoon } from "@/components/SlideComingSoon";
 import { SlideHero } from "@/components/SlideHero";
 import { SlideSolutions } from "@/components/SlideSolutions";
 import { SlidePartners } from "@/components/SlidePartners";
+import { SlideClient } from "../components/SlideClient";
 
 const CONTACT_SLIDE_INDEX = SLIDES.indexOf("contact");
 
@@ -62,8 +63,9 @@ export default function Home() {
       <SlideHero style={slideStyle(1)} onNext={handleNext} />
       <SlideSolutions style={slideStyle(2)} />
       <SlidePartners style={slideStyle(3)} />
+      <SlideClient style={slideStyle(4)} />
       <SlideContact
-        style={slideStyle(4)}
+        style={slideStyle(5)}
         formState={formState}
         setFormState={setFormState}
         sent={sent}

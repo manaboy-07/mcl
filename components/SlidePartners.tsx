@@ -20,7 +20,7 @@ export function SlidePartners({ style }: SlidePartnersProps) {
           -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 20s linear infinite;
         }
         .animate-scroll:hover {
           animation-play-state: paused;

@@ -32,23 +32,6 @@ export function SlideSolutions({ style }: SlideSolutionsProps) {
                   {s.desc}
                 </span>
               </div>
-
-              {/* Arrow Icon */}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                className="shrink-0 text-black opacity-30 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:text-[#fd018b] group-hover:opacity-100"
-              >
-                <path
-                  d="M3 9h12M9 3l6 6-6 6"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
             </div>
           ))}
         </div>
